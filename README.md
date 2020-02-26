@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://www.freelogodesign.org/file/app/client/thumb/3c61a3f2-b4ab-4d1b-b94b-a57ca764d4f0_200x200.png?1582756028836"></img>
+</p>
+
 ## What is The Better Professor App?
 The Better Professor Application is a platform for professors to be able to manage their students better. 
 
