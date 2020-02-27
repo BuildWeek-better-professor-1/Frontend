@@ -5,6 +5,8 @@
 ## What is The Better Professor App?
 The Better Professor Application is a platform for professors to be able to manage their students better. 
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a5a8af51-254f-4542-8982-a23c8c2e35f6/deploy-status)](https://app.netlify.com/sites/quizzical-davinci-82e957/deploys)
+
 ## Gitflow
 ##### Having a gitflow allows a smaller percentage of errors when multiple developers are working on a single application. 
 
