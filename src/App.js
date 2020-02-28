@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 //component imports
 import ProfRegisterForm from "./components/ProfRegisterForm";
@@ -14,6 +14,10 @@ const App = () => {
   return (
     <div className="App">
       <h1>Better Professor Application</h1>
+      <Link to="/proflogin">Login</Link>
+      {/*this <br/> is temp just to test things out */}
+      <br/>
+      <Link to="/profregister">Register</Link>
       <Route exact path="/" component={ProfLoginForm} />
       <Route path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
