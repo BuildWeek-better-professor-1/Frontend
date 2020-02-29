@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
 
 //component imports
 import ProfRegisterForm from "./components/ProfRegisterForm";

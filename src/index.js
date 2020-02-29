@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import { Switch } from "react-router-dom";
 
 //route imports
 import { BrowserRouter as Router } from "react-router-dom";
@@ -13,9 +14,11 @@ import store from "./redux/store";
 
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <Switch>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </Switch>
   </Router>,
   document.getElementById("root")
 );
