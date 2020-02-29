@@ -10,13 +10,16 @@ import {
 
 //init state
 export const initialState = {
-  user: {
-    id: "",
-    firstName: "",
-    lastName: "",
-    email: "",
-    username: "",
-    password: ""
+  data: {
+    message: ``,
+    user: {
+      id: "",
+      username: "",
+      firstName: "",
+      lastName: "",
+      email: ""
+    },
+    token: ""
   }
 };
 
