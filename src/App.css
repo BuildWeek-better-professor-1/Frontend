@@ -36,3 +36,32 @@
     transform: rotate(360deg);
   }
 }
+
+/* ============ Navigation Styling =========== */
+.nav-container {
+  background-color: #282c34;
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .nav-links {
+  color: white;
+  margin-right: 1rem;
+  text-decoration: none;
+  background-color: #4f596d;
+  padding: 10px;
+}
+
+.nav-links:hover {
+  background: #434c5f;
+}
+
+nav h1 {
+  color: white;
+  margin-left: 1rem;
+}
+
+/* ============ [END] Navigation Styling =========== */

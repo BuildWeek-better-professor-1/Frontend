@@ -9,13 +9,13 @@ import StudentRegisterForm from "./components/StudentRegisterForm";
 import StudentLoginForm from "./components/StudentLoginForm";
 import PrivateRoute from "./components/PrivateRoute";
 import ProfDashboard from "./components/ProfDashboard";
+import Navigation from "./components/Navigation";
 
 const App = () => {
   return (
     <div className="App">
-      <h1>Better Professor Application</h1>
+      <Navigation />
       <Route exact path="/" component={ProfLoginForm} />
-      <Route path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
       <Route path="/studentregister" component={StudentRegisterForm} />
       <Route path="/studentlogin" component={StudentLoginForm} />
