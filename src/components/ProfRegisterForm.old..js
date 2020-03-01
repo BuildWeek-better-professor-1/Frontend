@@ -73,12 +73,12 @@ const ProfRegisterForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} name="firstName" value={formState.firstName} placeholder="first name" />
-        <input onChange={handleChange} name="lastName" value={formState.lastName} placeholder="last name" />
+        {/* <input onChange={handleChange} name="firstName" value={formState.firstName} placeholder="first name" />
+        <input onChange={handleChange} name="lastName" value={formState.lastName} placeholder="last name" /> */}
+        
 
         <input onChange={handleChange} name="username" value={formState.username} placeholder="username" />
         <input onChange={handleChange} name="password" value={formState.password} placeholder="password" />
-
 
         <input onChange={handleChange} name="email" value={formState.email} placeholder="email" />
         <input type="submit" value="Submit" />
