@@ -65,3 +65,61 @@ nav h1 {
 }
 
 /* ============ [END] Navigation Styling =========== */
+
+/* ============ Professor Dashboard Styling ======== */
+
+.dashboard-main-container {
+  background: #f5f5f5;
+  height: 765px;
+}
+
+.dashboard-title {
+  padding: 1rem;
+}
+
+.box-task-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 1rem;
+  flex-wrap: wrap;
+}
+
+.box-task {
+  background: #ffffff;
+  width: 300px;
+  height: 250px;
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 1px solid #eeeded;
+}
+
+.box-title {
+  font-size: 24px;
+}
+
+.task-circle {
+  width: 7rem;
+}
+
+.task-count-circle {
+  position: relative;
+  bottom: 145px;
+  font-size: 3rem;
+}
+
+.task-welcome-name {
+  position: relative;
+  bottom: 10px;
+  font-size: 3rem;
+}
+
+.box-button {
+  background: #495b80;
+  border: none;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+}

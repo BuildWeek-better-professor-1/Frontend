@@ -16,6 +16,7 @@ const App = () => {
     <div className="App">
       <Navigation />
       <Route exact path="/" component={ProfLoginForm} />
+      <Route exact path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
       <Route path="/studentregister" component={StudentRegisterForm} />
       <Route path="/studentlogin" component={StudentLoginForm} />
