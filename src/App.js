@@ -3,7 +3,7 @@ import "./App.css";
 import { Route } from "react-router-dom";
 
 //component imports
-import ProfRegisterForm from "./components/ProfRegisterForm";
+import ProfRegisterForm from "./components/ProfRegisterForm/index";
 import ProfLoginForm from "./components/ProfLoginForm";
 import StudentRegisterForm from "./components/StudentRegisterForm";
 import StudentLoginForm from "./components/StudentLoginForm";
