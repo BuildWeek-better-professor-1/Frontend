@@ -1,37 +1,46 @@
-import React from "react";
-import loginImg from "../../login.svg";
+import React, { useState } from "react";
+// import "./App.css";
 
-export class Login extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const StudentLoginForm = () => {
+  const [user, setUser] = useState({ username: "", password: "" });
 
-  render() {
-    return (
-      <div className="base-container" ref={this.props.containerRef}>
-        <div className="header">Login</div>
-        <div className="content">
-          <div className="image">
-            <img src={loginImg} />
-          </div>
-          <div className="form">
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" placeholder="username" />
-            </div>
-            <div className="form-group">
-              <label htmlFor="password">Password</label>
-              <input type="password" name="password" placeholder="password" />
-            </div>
-          </div>
-        </div>
-        <div className="footer">
-          <button type="button" className="btn">
-            Login
-          </button>
-        </div>
-      </div>
-    );
-  }
-}
+  const handleChange = event => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(user.name);
+    console.log(user.password);
+  };
+
+  return (
+    <div className="StudentLoginForm">
+      {console.log(user)}
+      <h2>Student Login</h2>
+      <form onSubmit={event => handleSubmit(event)}>
+        <label>
+          Username:
+          <input
+            type="text"
+            name="username"
+            value={user.username}
+            onChange={event => handleChange(event)}
+          />
+        </label>
+        <label>
+          Password:
+          <input
+            type="text"
+            name="password"
+            value={user.password}
+            onChange={event => handleChange(event)}
+          />
+        </label>
+        <button>Submit!</button>
+      </form>
+    </div>
+  );
+};
+
 export default StudentLoginForm;
