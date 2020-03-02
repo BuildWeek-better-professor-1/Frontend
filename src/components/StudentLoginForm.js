@@ -1,44 +1,37 @@
 import React, { useState } from "react";
+import axios from "axios";
 // import "./App.css";
 
 const StudentLoginForm = () => {
   const [user, setUser] = useState({ username: "", password: "" });
+  const [error, setError] = useState("")
 
-  const handleChange = event => {
-    setUser({ ...user, [event.target.name]: event.target.value });
-  };
+  const handleSubmit = async (event) => {
+    try {
+      event.preventDefault()
+      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login", { ...user, type: "student" })
 
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log(user.name);
-    console.log(user.password);
+      localStorage.setItem("token", data.token)
+
+    } catch (e) {
+      setError(e.response.data.errorMessage || e.response.data.message)
+      setTimeout(() => setError(""), 3000)
+    }
+
+    const handleChange = (event) => {
+      setUser({ ...user, [event.target.name]: event.target.value });
+    }
   };
 
   return (
-    <div className="StudentLoginForm">
-      {console.log(user)}
+    <div className="student_login-container">
       <h2>Student Login</h2>
-      <form onSubmit={event => handleSubmit(event)}>
-        <label>
-          Username:
-          <input
-            type="text"
-            name="username"
-            value={user.username}
-            onChange={event => handleChange(event)}
-          />
-        </label>
-        <label>
-          Password:
-          <input
-            type="text"
-            name="password"
-            value={user.password}
-            onChange={event => handleChange(event)}
-          />
-        </label>
-        <button>Submit!</button>
+      <form className="student_login-form" onSubmit={handleSubmit}>
+        <input className="student_login-input" onChange={handleChange} name="username" value={user.username} placeholder="username" />
+        <input className="student_login-input" onChange={handleChange} name="password" value={user.password} placeholder="password" />
+        <input className="student_login-submit" type="submit" value="Submit" />
       </form>
+      <span>{error}</span>
     </div>
   );
 };

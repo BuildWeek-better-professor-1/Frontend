@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 const StudentRegisterForm = () => {
-  const [user, setUser] = useState({ username: "", password: "", firstName: "", lastName: "", email: ""})
+  const [user, setUser] = useState({ username: "", password: "", firstName: "", lastName: "", email: "" })
   const [error, setError] = useState("")
 
   const handleSubmit = async (event) => {
@@ -15,73 +15,26 @@ const StudentRegisterForm = () => {
       setError(e.response.data.message)
       setTimeout(() => setError(""), 3500)
     }
+  }
+  const handleChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  }
 
-    const handleChange = event => {
-      setUser({ ...user, [event.target.name]: event.target.value });
-    }
+  return (
+    <div>
+      <h2>Student Registration</h2>
+      <form onSubmit={handleSubmit}>
+        <input onChange={handleChange} name="username" value={user.username} placeholder="username" />
+        <input onChange={handleChange} name="password" value={user.password} placeholder="password" />
+        <input onChange={handleChange} name="firstName" value={user.firstName} placeholder="first name" />
+        <input onChange={handleChange} name="lastName" value={user.lastName} placeholder="last name" />
+        <input onChange={handleChange} name="email" value={user.email} placeholder="email" />
+        <input type="submit" value="Submit" />
+      </form>
+      <span>{error}</span>
+    </div>
+  );
 
-    const handleSubmit = event => {
-      event.preventDefault();
-      console.log(user.name);
-      console.log(user.email);
-      console.log(user.password);
-    }
-
-    return (
-      <div className="StudentRegisterForm">
-        <form onSubmit={handleSubmit}>
-          <h2>Student Registration</h2>
-          <div className="content">
-            <div className="form">
-              <label>
-                Username
-              <input
-                  type="string"
-                  name="username"
-                  placeholder="username"
-                  onChange={handleChange} />
-              </label>
-              <label>
-                Password
-              <input
-                  type="string"
-                  name="password"
-                  placeholder="password"
-                  onChange={handleChange} />
-              </label>
-              <label>
-                First Name
-              <input
-                  type="string"
-                  name="firstName"
-                  placeholder="first name"
-                  onChange={handleChange} />
-              </label>
-              <label>
-                Last Name
-              <input
-                  type="string"
-                  name="lastName"
-                  placeholder="last name"
-                  onChange={handleChange} />
-              </label>
-              <label>
-                Email
-              <input
-                  type="string"
-                  name="email"
-                  placeholder="email"
-                  onChange={handleChange} />
-              </label>
-              <input type="submit" value="Submit" />
-            </div>
-          </div>
-
-        </form>
-        <span>{error}</span>
-      </div>
-    );
-  };
 };
 
 export default StudentRegisterForm;
