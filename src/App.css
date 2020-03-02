@@ -74,7 +74,15 @@ nav h1 {
 }
 
 .dashboard-title {
-  padding: 1rem;
+  padding: 3rem;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.363)),
+    url("https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-shadow: rgb(15, 15, 15);
 }
 
 .box-task-container {
