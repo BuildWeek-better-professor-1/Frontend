@@ -3,7 +3,7 @@ import axios from "axios";
 // import "./App.css";
 
 const StudentLoginForm = () => {
-  const [user, setUser] = useState({ username: "", password: "" });
+  const [user, setUser] = useState({ username: "", password: "" })
   const [error, setError] = useState("")
 
   const handleSubmit = async (event) => {
@@ -17,11 +17,12 @@ const StudentLoginForm = () => {
       setError(e.response.data.errorMessage || e.response.data.message)
       setTimeout(() => setError(""), 3000)
     }
+  }
 
-    const handleChange = (event) => {
-      setUser({ ...user, [event.target.name]: event.target.value });
-    }
-  };
+  const handleChange = (event) => {
+    setUser({ ...user, [event.target.name]: event.target.value });
+  }
+
 
   return (
     <div className="student_login-container">
