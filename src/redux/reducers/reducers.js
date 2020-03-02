@@ -17,7 +17,8 @@ export const initialState = {
       username: "",
       firstName: "",
       lastName: "",
-      email: ""
+      email: "",
+      type: ""
     },
     token: ""
   }
