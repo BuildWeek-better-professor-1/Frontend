@@ -65,3 +65,69 @@ nav h1 {
 }
 
 /* ============ [END] Navigation Styling =========== */
+
+/* ============ Professor Dashboard Styling ======== */
+
+.dashboard-main-container {
+  background: #f5f5f5;
+  height: 765px;
+}
+
+.dashboard-title {
+  padding: 3rem;
+  margin: 0;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.589), rgba(0, 0, 0, 0.363)),
+    url("https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: white;
+  text-shadow: rgb(15, 15, 15);
+}
+
+.box-task-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 1rem;
+  flex-wrap: wrap;
+}
+
+.box-task {
+  background: #ffffff;
+  width: 300px;
+  height: 250px;
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 1px solid #eeeded;
+}
+
+.box-title {
+  font-size: 24px;
+}
+
+.task-circle {
+  width: 7rem;
+}
+
+.task-count-circle {
+  position: relative;
+  bottom: 145px;
+  font-size: 3rem;
+}
+
+.task-welcome-name {
+  position: relative;
+  bottom: 10px;
+  font-size: 3rem;
+}
+
+.box-button {
+  background: #495b80;
+  border: none;
+  display: flex;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 5px;
+  color: white;
+}

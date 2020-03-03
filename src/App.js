@@ -3,7 +3,7 @@ import "./App.css";
 import { Route } from "react-router-dom";
 
 //component imports
-import ProfRegisterForm from "./components/ProfRegisterForm";
+import ProfRegisterForm from "./components/ProfRegisterForm/index";
 import ProfLoginForm from "./components/ProfLoginForm";
 import StudentRegisterForm from "./components/StudentRegisterForm";
 import StudentLoginForm from "./components/StudentLoginForm";
@@ -16,6 +16,7 @@ const App = () => {
     <div className="App">
       <Navigation />
       <Route exact path="/" component={ProfLoginForm} />
+      <Route exact path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
       <Route path="/studentregister" component={StudentRegisterForm} />
       <Route path="/studentlogin" component={StudentLoginForm} />
