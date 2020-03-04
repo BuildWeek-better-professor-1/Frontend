@@ -9,9 +9,12 @@ const ProfLoginForm = () => {
   const history = useHistory()
 
   const handleSubmit = async (event) => {
+    console.log('profLoginState', formState)
     try {
       event.preventDefault()
-      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login", { ...formState, type: "professor" })
+
+      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login?type=p", { ...formState })
+
       localStorage.setItem("token", data.token)
 
       history.push('/professordashboard')
