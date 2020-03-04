@@ -1,54 +1,57 @@
-
 .prof_login-container {
-    height: 330px;
-    width: 500px;
-    border-radius: 10px;
-    background: lightblue;
-    margin: 75px auto;
-    padding: 20px;
+  height: 330px;
+  width: 500px;
+  border-radius: 10px;
+  background: lightblue;
+  margin: 75px auto;
+  padding: 20px;
 }
 
 .prof_login-form {
-    height: 100%;
-    width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 .prof_login-input {
-    background-color: lightblue;
-    border: none;
-    height: 50px;
-    font-size: 30px;
-    margin: 20px 0;
-    border-bottom: 2px solid lightblue;
+  background-color: lightblue;
+  border: none;
+  height: 50px;
+  font-size: 30px;
+  margin: 20px 0;
+  border-bottom: 2px solid lightblue;
 }
 
-
-.prof_login-input:focus{
-    outline-width: 0;
-    border-bottom: 2px solid black;
-}     
+.prof_login-input:focus {
+  outline-width: 0;
+  border-bottom: 2px solid black;
+}
 
 .prof_login-submit {
-    height: 40px;
-    width: 150px;
-    border: none;
-    border-radius: 10px;
-    font-size: 30px;
-    color: #282c34;;
-    background: white;
-    margin: 20px;
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 10px;
+  font-size: 30px;
+  color: #282c34;
+  background: white;
+  margin: 20px;
 }
 
-.prof_login-submit:focus{
-    outline-width: 0;
+.prof_login-submit:focus {
+  outline-width: 0;
 }
 
-.prof_login-submit:hover{
-    cursor: pointer;
-    background: whitesmoke;
+.prof_login-submit:hover {
+  cursor: pointer;
+  background: whitesmoke;
 }
 
-.prof_login-error{
-    color: red;
-    font-size: 20px;
+.register-form-link {
+  text-decoration: none;
+  color: #348eab;
+}
+
+.prof_login-error {
+  color: red;
+  font-size: 20px;
 }

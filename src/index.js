@@ -13,13 +13,13 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 
 ReactDOM.render(
-  <Router>
-    <Switch>
-      <Provider store={store}>
+  <Provider store={store}>
+    <Router>
+      <Switch>
         <App />
-      </Provider>
-    </Switch>
-  </Router>,
+      </Switch>
+    </Router>
+  </Provider>,
   document.getElementById("root")
 );
 
