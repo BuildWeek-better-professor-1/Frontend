@@ -12,7 +12,6 @@ const ProfLoginForm = () => {
     try {
       event.preventDefault()
       const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login", { ...formState, type: "professor" })
-
       localStorage.setItem("token", data.token)
 
       history.push('/professordashboard')
