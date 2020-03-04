@@ -10,7 +10,7 @@ import StudentLoginForm from "./components/StudentLoginForm";
 import PrivateRoute from "./components/PrivateRoute";
 import ProfDashboard from "./components/ProfDashboard";
 import Navigation from "./components/Navigation";
-import PrivateStudentRoute from "./components/PrivateStudentRoute"
+import PrivateStudentRoute from "./components/PrivateStudentRoute";
 import StudentDashBoard from "./components/StudentDashboard";
 
 const App = () => {

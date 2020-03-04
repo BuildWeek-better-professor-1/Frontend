@@ -24,6 +24,9 @@ const Navigation = () => {
           <Link className="nav-links" to="/professordashboard">
             Dashboard
           </Link>
+          <Link className="nav-links" to="/students">
+            Students
+          </Link>
           <Link className="nav-links" onClick={handleSubmit} to="/proflogin">
             Logout
           </Link>
