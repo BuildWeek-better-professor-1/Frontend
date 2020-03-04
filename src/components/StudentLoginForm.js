@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './styles/StudentLoginForm.css'
-
+import { useHistory } from 'react-router-dom'
 const StudentLoginForm = () => {
   const [user, setUser] = useState({ username: "", password: "" })
   const [error, setError] = useState("")
 
+  const history = useHistory()
+
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login", { ...user, type: "student" })
+      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/login", { ...user, type: "s" })
 
       localStorage.setItem("token", data.token)
-
+      history.push('/students')
     } catch (e) {
       setError(e.response.data.errorMessage || e.response.data.message)
       setTimeout(() => setError(""), 3000)
