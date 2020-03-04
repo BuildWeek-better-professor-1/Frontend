@@ -12,6 +12,7 @@ import ProfDashboard from "./components/ProfDashboard";
 import Navigation from "./components/Navigation";
 import PrivateStudentRoute from "./components/PrivateStudentRoute";
 import StudentDashBoard from "./components/StudentDashboard";
+import SignoutMessage from "./components/SignoutMessage";
 
 const App = () => {
   return (
@@ -32,6 +33,8 @@ const App = () => {
         path="/students"
         component={StudentDashBoard}
       />
+
+      <Route path="/signedout" component={SignoutMessage} />
     </div>
   );
 };

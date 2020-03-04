@@ -105,7 +105,7 @@ nav h1 {
 .box-task-1 {
   background: #ffffff;
   width: 300px;
-  height: 300px;
+  height: 180px;
   margin-top: 1rem;
   border-radius: 20px;
   border: 2px solid #eeeded;
@@ -130,7 +130,7 @@ nav h1 {
 
 .task-welcome-name {
   position: relative;
-  bottom: 10px;
+  bottom: 28px;
   font-size: 3rem;
 }
 
@@ -166,4 +166,10 @@ nav h1 {
   color: #4f596d;
   font-size: 18px;
   font-weight: 600;
+}
+
+/* ++++++++++++++++++  SIGN OUT PAGE STYLES ++++++++++++++++++++ */
+
+.signout-image {
+  margin-top: 3rem;
 }
