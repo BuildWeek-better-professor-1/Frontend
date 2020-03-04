@@ -2,7 +2,10 @@
 import {
   PROF_FETCH_DATA_START,
   PROF_FETCH_DATA_SUCCESS,
-  PROF_FETCH_DATA_FAILURE
+  PROF_FETCH_DATA_FAILURE,
+  PROF_LOGGED_START,
+  PROF_LOGGED_SUCCESS,
+  PROF_LOGGED_FAILURE
 } from "../actions/actions";
 
 //initial state => Before it changes when getting a promise from the API.
@@ -14,6 +17,12 @@ export const initialState = {
 //main root reducer
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    //starts the login for Professor
+    case PROF_LOGGED_START:
+      return {
+        ...state
+      };
+
     //starts the request for data of professor
     case PROF_FETCH_DATA_START:
       return {
