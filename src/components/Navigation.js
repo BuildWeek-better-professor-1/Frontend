@@ -18,12 +18,19 @@ const Navigation = () => {
           {/* <Link className="nav-links" to="/proflogin">
           Login
         </Link> */}
-          <Link className="nav-links" to="/profregister">
+          {/* <Link className="nav-links" to="/profregister">
             Register
-          </Link>
-          <Link className="nav-links" to="/professordashboard">
+          </Link> */}
+          {/* <Link className="nav-links" to="/professordashboard">
             Dashboard
-          </Link>
+          </Link> */}
+          <a
+            className="nav-links"
+            href="https://buildweek-better-professor-1.github.io/about.html"
+            target="_blank"
+          >
+            About
+          </a>
           <Link className="nav-links" to="/students">
             Students
           </Link>
