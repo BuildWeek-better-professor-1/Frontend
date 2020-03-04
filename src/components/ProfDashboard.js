@@ -1,7 +1,7 @@
 import React from "react";
-import Circle from "../assets/Circle.svg";
 import { connect } from "react-redux";
 import { getProfessors } from "../redux/actions/actions";
+import { Link } from "react-router-dom";
 
 const ProfDashboard = props => {
   //calling the action "fetchSingleProfessor" from action.js to call
@@ -11,9 +11,14 @@ const ProfDashboard = props => {
     props.getProfessors();
   };
 
+  const handleSubmit = () => {
+    localStorage.clear();
+    console.log("GG: localStorage: ", localStorage.clear());
+  };
+
   return (
     <>
-      <div className="dashboard-main-container" key={"hello"}>
+      <div className="dashboard-main-container">
         <h2 className="dashboard-title">Dashboard</h2>
         <div className="box-task-container">
           <div className="box-task-1">
@@ -27,7 +32,7 @@ const ProfDashboard = props => {
               Show Name
             </button>
           </div>
-          <section className="box-task-container">
+          <div className="box-task-container">
             <div className="box-task">
               <p className="box-title">Reminders</p>
               <div className="reminder-list-container">
@@ -43,9 +48,9 @@ const ProfDashboard = props => {
                 {/* ========== [END] DUMMY DATA ========== */}
               </div>
             </div>
-          </section>
+          </div>
           <div className="box-task-container">
-            <div className="box-task-1">
+            <div className="box-task-2">
               <p className="box-title">Dashboard Tools</p>
 
               {/* This "Add Professor" button is for testing that the data is flowing from state...
@@ -64,6 +69,14 @@ const ProfDashboard = props => {
               >
                 Delete
               </button>
+              <a
+                className="box-button-logout"
+                title="Sign Out of Profile"
+                onClick={handleSubmit}
+                href="/proflogin"
+              >
+                Sign Out
+              </a>
             </div>
           </div>
         </div>

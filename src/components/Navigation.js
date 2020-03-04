@@ -2,19 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Navigation = () => {
-  const handleSubmit = () => {
-    localStorage.clear();
-    console.log("GG: localStorage: ", localStorage.clear());
-  };
-
   return (
     <div className="nav-container">
       <nav>
         <h1> Better Professor </h1>
         <div>
-          <Link className="nav-links" to="/">
+          {/* <Link className="nav-links" to="/">
             Home
-          </Link>
+          </Link> */}
           {/* <Link className="nav-links" to="/proflogin">
           Login
         </Link> */}
@@ -34,9 +29,9 @@ const Navigation = () => {
           <Link className="nav-links" to="/students">
             Students
           </Link>
-          <Link className="nav-links" onClick={handleSubmit} to="/proflogin">
+          {/* <Link className="nav-links" onClick={handleSubmit} to="/proflogin">
             Logout
-          </Link>
+          </Link> */}
         </div>
       </nav>
     </div>

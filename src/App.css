@@ -53,6 +53,7 @@ nav .nav-links {
   text-decoration: none;
   background-color: #4f596d;
   padding: 10px;
+  border-radius: 6px;
 }
 
 .nav-links:hover {
@@ -91,14 +92,6 @@ nav h1 {
   margin-left: 1rem;
   flex-wrap: wrap;
 }
-.box-task-1 {
-  background: #ffffff;
-  width: 300px;
-  height: 300px;
-  margin-top: 1rem;
-  border-radius: 20px;
-  border: 2px solid #eeeded;
-}
 
 .box-task {
   background: #ffffff;
@@ -109,6 +102,23 @@ nav h1 {
   border: 1px solid #eeeded;
 }
 
+.box-task-1 {
+  background: #ffffff;
+  width: 300px;
+  height: 300px;
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 2px solid #eeeded;
+}
+
+.box-task-2 {
+  background: #ffffff;
+  width: 300px;
+  height: 355px;
+  margin-top: 1rem;
+  border-radius: 20px;
+  border: 2px solid #eeeded;
+}
 .box-title {
   font-size: 24px;
   font-weight: 500;
@@ -149,4 +159,11 @@ nav h1 {
   width: 50%;
   justify-content: center;
   border: 3px solid #37486b;
+}
+
+.box-button-logout {
+  text-decoration: none;
+  color: #4f596d;
+  font-size: 18px;
+  font-weight: 600;
 }
