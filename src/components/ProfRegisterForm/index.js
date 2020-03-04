@@ -5,14 +5,15 @@ import { useHistory } from 'react-router-dom'
 import { Step1, Step2, Step3 } from './steps'
 const ProfRegisterForm = () => {
 
-    const [formState, setFormState] = useState({ username: "", password: "", firstName: "", lastName: "", email: "", currentStep: 1 })
+    const [formState, setFormState] = useState({ username: "", password: "", firstName: "", lastName: "", email: "" })
     const [error, setError] = useState("")
+    const [currentStep, setCurrentStep] = useState(1)
     const history = useHistory()
 
     const handleSubmit = async (event) => {
         try {
             event.preventDefault()
-            const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/register", { ...formState, type: "professor" })
+            const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/register", { ...formState})
             console.log(data)
             //   data: {
             //     message: `Welcome ${saved['First Name']}`,
@@ -30,20 +31,20 @@ const ProfRegisterForm = () => {
 
     const handleNext = () => {
         console.log('handleNext before', formState)
-        let currentStep = formState.currentStep
-        currentStep = currentStep >= 2 ? 3 : currentStep + 1
-        setFormState({ ...formState, currentStep: currentStep })
+        let nextCurrentStep = currentStep
+        nextCurrentStep = nextCurrentStep >= 2 ? 3 : currentStep + 1
+        setCurrentStep(nextCurrentStep)
         console.log('handleNext after', formState)
     }
 
     const handlePrev = () => {
-        let currentStep = formState.currentStep
-        currentStep = currentStep <= 1 ? 1 : currentStep - 1
-        setFormState({ ...formState, currentStep: currentStep })
+        let nextCurrentStep = currentStep
+        nextCurrentStep = nextCurrentStep <= 1 ? 1 : currentStep - 1
+        setCurrentStep(nextCurrentStep)
     }
 
     const previousButton = () => {
-        let currentStep = formState.currentStep;
+        // let nextCurrentStep = currentStep;
         if (currentStep !== 1) {
             return (
                 <button
@@ -57,7 +58,7 @@ const ProfRegisterForm = () => {
     }
 
     const nextButton = () => {
-        let currentStep = formState.currentStep;
+        // let currentStep = currentStep;
         if (currentStep < 3) {
             return (
                 <button
@@ -78,9 +79,9 @@ const ProfRegisterForm = () => {
         <div>
             <h2>Professor Registration</h2>
             <form onSubmit={handleSubmit}>
-                <Step1 handleChange={handleChange} {...formState} />
-                <Step2 handleChange={handleChange} {...formState} />
-                <Step3 handleChange={handleChange} {...formState} />
+                <Step1 handleChange={handleChange} {...formState}currentStep={currentStep} />
+                <Step2 handleChange={handleChange} {...formState}currentStep={currentStep} />
+                <Step3 handleChange={handleChange} {...formState}currentStep={currentStep} />
             </form>
             {previousButton()}
             {nextButton()}
