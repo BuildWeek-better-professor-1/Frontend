@@ -1,61 +1,42 @@
 //Types will live here
-
 import {
-  PROF_REGISTER,
-  PROF_LOGIN,
-  PROF_FETCH_DATA,
-  PROF_FETCH_DATA_LOGGED,
-  PROF_LOGGEDOUT
+  PROF_FETCH_DATA_START,
+  PROF_FETCH_DATA_SUCCESS,
+  PROF_FETCH_DATA_FAILURE
 } from "../actions/actions";
 
-//init state
+//initial state => Before it changes when getting a promise from the API.
 export const initialState = {
-  data: {
-    message: ``,
-    user: {
-      id: "",
-      username: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      type: ""
-    },
-    token: ""
-  }
+  professor: [],
+  isFetching: false
 };
 
 //main root reducer
 export const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case PROF_REGISTER:
+    //starts the request for data of professor
+    case PROF_FETCH_DATA_START:
       return {
         ...state,
-        ...state.user,
-        user: action.payload
+        error: "",
+        isFetching: true
       };
-    case PROF_LOGIN:
+    // if data is returned successfully it will give the
+    //action.payload
+    case PROF_FETCH_DATA_SUCCESS:
       return {
         ...state,
-        ...state.user,
-        user: action.payload
+        error: "",
+        isFetching: true,
+        professor: action.payload
       };
-    case PROF_FETCH_DATA:
-      return state;
-    case PROF_FETCH_DATA_LOGGED:
+    //if promise call fails then return an error inside this type/action.
+    case PROF_FETCH_DATA_FAILURE:
       return {
         ...state,
-        user: {
-          ...state.user,
-          id: action.payload.id,
-          firstName: action.payload.firstName,
-          lastName: action.payload.lastName,
-          email: action.payload.email,
-          username: action.payload.username,
-          password: action.payload.password
-        }
+        error: action.payload,
+        isFetching: false
       };
-    case PROF_LOGGEDOUT:
-      return state;
     default:
       return state;
   }
