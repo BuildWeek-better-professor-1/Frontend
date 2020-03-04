@@ -39,7 +39,7 @@ const StudentDashBoard = () => {
       {reminders.map(r =>
         <div className={r.passed_due ? "reminder urgent" : "reminder"}>
           <h3>{r["Project Name"]}</h3>
-          <p>{r["Descrition"]}</p>
+          <p>{r["Description"]}</p>
         </div>)}
     </>
   );

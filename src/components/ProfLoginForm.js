@@ -19,8 +19,8 @@ const ProfLoginForm = () => {
         "https://better-professor-app-1.herokuapp.com/api/auth/login?type=p",
         { ...formState }
       );
-
-      localStorage.setItem("token", data.token);
+      console.log('lll', data)
+      localStorage.setItem("token", data.data.token);
 
       history.push("/professordashboard");
     } catch (e) {
