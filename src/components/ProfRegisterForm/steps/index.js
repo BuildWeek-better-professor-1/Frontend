@@ -12,7 +12,6 @@ export const Step1 = ({ handleChange, firstName, lastName, currentStep }) => {
     )
 }
 
-
 export const Step2 = ({ handleChange, password, username, currentStep }) => {
     if (currentStep !== 2) {
         return null
