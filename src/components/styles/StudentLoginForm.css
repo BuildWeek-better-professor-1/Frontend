@@ -1,0 +1,54 @@
+
+.student_login-container {
+    height: 330px;
+    width: 500px;
+    border-radius: 10px;
+    background: lightblue;
+    margin: 75px auto;
+    padding: 20px;
+}
+
+.student_login-form {
+    height: 100%;
+    width: 100%;
+}
+
+.student_login-input {
+    background-color: lightblue;
+    border: none;
+    height: 50px;
+    font-size: 30px;
+    margin: 20px 0;
+    border-bottom: 2px solid lightblue;
+}
+
+
+.student_login-input:focus{
+    outline-width: 0;
+    border-bottom: 2px solid black;
+}     
+
+.student_login-submit {
+    height: 40px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #282c34;;
+    background: white;
+    margin: 20px;
+}
+
+.student_login-submit:focus{
+    outline-width: 0;
+}
+
+.student_login-submit:hover{
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+.student_login-error{
+    color: red;
+    font-size: 20px;
+}
