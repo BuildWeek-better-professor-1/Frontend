@@ -1,0 +1,52 @@
+.student_register-container {
+    height: 700px;
+    width: 500px;
+    border-radius: 10px;
+    background: lightblue;
+    margin: 75px auto;
+    padding: 20px;
+}
+
+.student_register-form {
+    height: 100%;
+    width: 100%;
+}
+
+.student_register-input {
+    background-color: lightblue;
+    border: none;
+    height: 50px;
+    font-size: 30px;
+    margin: 20px 0;
+    border-bottom: 2px solid lightblue;
+}
+
+.student_register-input:focus{
+    outline-width: 0;
+    border-bottom: 2px solid black;
+}     
+
+.student_register-submit {
+    height: 40px;
+    width: 150px;
+    border: none;
+    border-radius: 10px;
+    font-size: 30px;
+    color: #282c34;;
+    background: white;
+    margin: 20px;
+}
+
+.student_register-submit:focus{
+    outline-width: 0;
+}
+
+.student_register-submit:hover{
+    cursor: pointer;
+    background: whitesmoke;
+}
+
+.student_register-error{
+    color: red;
+    font-size: 20px;
+}
