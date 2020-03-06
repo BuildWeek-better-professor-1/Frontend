@@ -12,9 +12,10 @@ export default class Professors extends React.Component {
     };
 
     componentDidMount() {
-        axios.get(`https://better-professor-app-1.herokuapp.com//api/users/professor`)
+        axios.get(`https://better-professor-app-1.herokuapp.com/api/users/professor`)
             .then(res => {
-                this.setState({ profs: res.data });
+                console.log(res.data)
+                this.setState({ profs: res.data.dat.professors });
             });
     }
 
@@ -22,7 +23,7 @@ export default class Professors extends React.Component {
         return (
             <ul>
                 {this.state.profs.map(professor => (
-                    <li key={professor.id}>{professor.name}</li>
+                    <li key={professors.id}>{professors.first_name}</li>
                 ))}
             </ul>
         );
