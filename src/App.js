@@ -20,6 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <Navigation /> 
+      <Route path="/professors" component={Professors} />
       <Route exact path="/" component={ProfLoginForm} />
       <Route exact path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
