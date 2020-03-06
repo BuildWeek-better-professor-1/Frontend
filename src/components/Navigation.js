@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Zoom from "react-reveal/Zoom";
 
 const Navigation = () => {
   return (
     <div className="nav-container">
       <nav>
-        <h1> Better Professor </h1>
+        <Zoom>
+          <img
+            className="logo "
+            src="https://cdn.iconscout.com/icon/free/png-256/teacher-1659459-1409981.png"
+          ></img>
+        </Zoom>
         <div>
           {/* <Link className="nav-links" to="/">
             Home

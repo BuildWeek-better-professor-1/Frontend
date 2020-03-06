@@ -13,13 +13,13 @@ import Navigation from "./components/Navigation";
 import PrivateStudentRoute from "./components/PrivateStudentRoute";
 import StudentDashBoard from "./components/StudentDashboard";
 import SignoutMessage from "./components/SignoutMessage";
-import AddRemindersForm from "./components/AddStudentsForm";
-import Professors from './components/Professors'
+import AddRemindersForm from "./components/AddRemindersForm";
+import Professors from "./components/Professors";
 
 const App = () => {
   return (
     <div className="App">
-      <Navigation /> 
+      <Navigation />
       <Route path="/professors" component={Professors} />
       <Route exact path="/" component={ProfLoginForm} />
       <Route exact path="/proflogin" component={ProfLoginForm} />
