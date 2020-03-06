@@ -14,11 +14,12 @@ import PrivateStudentRoute from "./components/PrivateStudentRoute";
 import StudentDashBoard from "./components/StudentDashboard";
 import SignoutMessage from "./components/SignoutMessage";
 import AddRemindersForm from "./components/AddStudentsForm";
+import Professors from './components/Professors'
 
 const App = () => {
   return (
     <div className="App">
-      <Navigation />
+      <Navigation /> 
       <Route exact path="/" component={ProfLoginForm} />
       <Route exact path="/proflogin" component={ProfLoginForm} />
       <Route path="/profregister" component={ProfRegisterForm} />
