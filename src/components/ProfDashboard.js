@@ -21,7 +21,7 @@ const ProfDashboard = props => {
 
   useEffect(() => {
     const { subject } = decode(localStorage.getItem("token"));
-    props.getProfessors();
+    props.getProfessors(subject);
     props.getStudents(subject);
   }, []);
 
@@ -33,7 +33,7 @@ const ProfDashboard = props => {
         <div className="box-task-container">
           <div className="box-task-1">
             <p className="box-title">Welcome</p>
-            <p className="task-welcome-name"> {professor}</p>
+            <p className="task-welcome-name"> {professor.username}</p>
             {/* <button
                 className="box-button"
                 title="Display your name"

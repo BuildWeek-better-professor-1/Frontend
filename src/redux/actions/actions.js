@@ -35,27 +35,25 @@ export const PROF_REMINDERS_EDIT_FAILURE = "PROF_REMINDERS_ADD_FAILURE";
 
 //dispatches a get request to get all data from a professor.
 //using another API because I get 404 on API from backend.
-export const getProfessors = () => dispatch => {
+export const getProfessors = id => dispatch => {
   dispatch({ type: PROF_FETCH_DATA_START });
   axiosWithAuth()
     // axios
-    .get("/api/users/professor", {
+    .get(`/api/users/professor/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
       }
     })
     .then(response => {
-      console.log("Name of User Using Dashboard: ", [
-        response.data.data.professors
-      ]);
+      console.log("Name of User Using Dashboard: ", [response.data.data.users]);
       //attempt to get token... It might work when login page works again.
 
       dispatch({
         type: PROF_FETCH_DATA_SUCCESS,
 
         //specifying the data I want.
-        payload: response.data.data.professors[0].first_name
+        payload: response.data.data.user
       });
     })
     .catch(error => {
