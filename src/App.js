@@ -33,6 +33,7 @@ const App = () => {
       <PrivateStudentRoute
         exact
         path="/students"
+        OtherComponent={StudentLoginForm}
         component={StudentDashBoard}
       />
 
