@@ -22,10 +22,10 @@ export default class Professors extends React.Component {
         return (
             <ul>
                 {this.state.profs.map(professor => (
-                    <li> key={professor.id}</li>
+                    <li key={professor.id}>{professor.name}</li>
                 ))}
             </ul>
-        )
+        );
     }
 }
 
