@@ -3,10 +3,10 @@ import { axiosWithAuth } from '../axiosWithAuth'
 import { decode } from 'jsonwebtoken'
 import { useInterval } from '../../hooks'
 
-const StudentDashBoard = () => {
+const StudentDashBoard = ({initialReminders}) => {
   const [id, setId] = useState(null)
 
-  const [reminders, setReminders] = useState([])
+  const [reminders, setReminders] = useState(initialReminders)
 
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -38,8 +38,8 @@ const StudentDashBoard = () => {
       <h1>Student Dash Board</h1>
       {reminders.map(r =>
         <div className={r.passed_due ? "reminder urgent" : "reminder"}>
-          <h3>{r["Project Name"]}</h3>
-          <p>{r["Description"]}</p>
+          <h3>{r.project_name}</h3>
+          <p>{r.descriptions}</p>
         </div>)}
     </>
   );
