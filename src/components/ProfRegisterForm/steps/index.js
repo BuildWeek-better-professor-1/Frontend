@@ -1,4 +1,5 @@
 import React from 'react'
+// import "./styles/ProfRegisterForm.css";
 
 export const Step1 = ({ handleChange, firstName, lastName, currentStep }) => {
     if (currentStep !== 1) {
@@ -6,8 +7,8 @@ export const Step1 = ({ handleChange, firstName, lastName, currentStep }) => {
     }
     return (
         <>
-            <input onChange={handleChange} name="firstName" value={firstName} placeholder="first name" />
-            <input onChange={handleChange} name="lastName" value={lastName} placeholder="last name" />
+            <input className=".prof_register-input" onChange={handleChange} name="firstName" value={firstName} placeholder="first name" />
+            <input className=".prof_register-input" onChange={handleChange} name="lastName" value={lastName} placeholder="last name" />
         </>
     )
 }
@@ -18,8 +19,8 @@ export const Step2 = ({ handleChange, password, username, currentStep }) => {
     }
     return (
         <>
-            <input onChange={handleChange} name="username" value={username} placeholder="username" />
-            <input onChange={handleChange} name="password" value={password} placeholder="password" />
+            <input className=".prof_register-input" onChange={handleChange} name="username" value={username} placeholder="username" />
+            <input className=".prof_register-input" onChange={handleChange} name="password" value={password} placeholder="password" />
         </>
     )
 }
@@ -30,8 +31,8 @@ export const Step3 = ({ handleChange, email, currentStep }) => {
     }
     return (
         <>
-            <input onChange={handleChange} name="email" value={email} placeholder="email" />
-            <input type="submit" value="Submit" />
+            <input className=".prof_register-input" onChange={handleChange} name="email" value={email} placeholder="email" />
+            <input className=".prof_register-input" type="submit" value="Submit" />
         </>
     )
 }

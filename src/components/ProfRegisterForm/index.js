@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-
+// import "./styles/ProfRegisterForm.css";
 import { Step1, Step2, Step3 } from './steps'
 const ProfRegisterForm = () => {
 
@@ -13,7 +13,7 @@ const ProfRegisterForm = () => {
     const handleSubmit = async (event) => {
         try {
             event.preventDefault()
-            const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/register", { ...formState})
+            const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/register", { ...formState })
             console.log(data)
             //   data: {
             //     message: `Welcome ${saved['First Name']}`,
@@ -76,12 +76,12 @@ const ProfRegisterForm = () => {
     }
 
     return (
-        <div>
+        <div className=".prof_register-container" >
             <h2>Professor Registration</h2>
-            <form onSubmit={handleSubmit}>
-                <Step1 handleChange={handleChange} {...formState}currentStep={currentStep} />
-                <Step2 handleChange={handleChange} {...formState}currentStep={currentStep} />
-                <Step3 handleChange={handleChange} {...formState}currentStep={currentStep} />
+            <form className=".prof_register-form" onSubmit={handleSubmit}>
+                <Step1 handleChange={handleChange} {...formState} currentStep={currentStep} />
+                <Step2 handleChange={handleChange} {...formState} currentStep={currentStep} />
+                <Step3 handleChange={handleChange} {...formState} currentStep={currentStep} />
             </form>
             {previousButton()}
             {nextButton()}
