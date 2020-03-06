@@ -1,5 +1,5 @@
-.student_login-container {
-    height: 330px;
+.student_register-container {
+    height: 650px;
     width: 500px;
     border-radius: 10px;
     background: lightblue;
@@ -7,12 +7,12 @@
     padding: 20px;
 }
 
-.student_login-form {
+.student_register-form {
     height: 100%;
     width: 100%;
 }
 
-.student_login-input {
+.student_register-input {
     background-color: lightblue;
     border: none;
     height: 50px;
@@ -21,13 +21,12 @@
     border-bottom: 2px solid lightblue;
 }
 
-
-.student_login-input:focus{
+.student_register-input:focus{
     outline-width: 0;
     border-bottom: 2px solid black;
 }     
 
-.student_login-submit {
+.student_register-submit {
     height: 40px;
     width: 150px;
     border: none;
@@ -38,16 +37,16 @@
     margin: 20px;
 }
 
-.student_login-submit:focus{
+.student_register-submit:focus{
     outline-width: 0;
 }
 
-.student_login-submit:hover{
+.student_register-submit:hover{
     cursor: pointer;
     background: whitesmoke;
 }
 
-.student_login-error{
+.student_register-error{
     color: red;
     font-size: 20px;
 }
