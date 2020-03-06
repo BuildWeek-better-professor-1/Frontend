@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { getProfessors } from "../redux/actions/actions";
-import { Link } from "react-router-dom";
+import { getProfessors, getStudents } from "../redux/actions/actions";
+import { decode } from "jsonwebtoken";
+// import { Link } from "react-router-dom";
 
 const ProfDashboard = props => {
   //calling the action "fetchSingleProfessor" from action.js to call
@@ -11,82 +12,81 @@ const ProfDashboard = props => {
   //   props.getProfessors();
   // };
 
+  // const [professorId, getProfessorsId] = useState();
+
   const handleSubmit = () => {
     localStorage.clear();
     console.log("GG: localStorage: ", localStorage.clear());
   };
 
   useEffect(() => {
+    const { subject } = decode(localStorage.getItem("token"));
     props.getProfessors();
+    props.getStudents(subject);
   }, []);
 
+  const professor = props.professor;
   return (
     <>
-      {props.professor.map(prof => (
-        <div key={"hello"} className="dashboard-main-container">
-          <h2 className="dashboard-title">Dashboard</h2>
-          <div className="box-task-container">
-            <div className="box-task-1">
-              <p className="box-title">Welcome</p>
-              <p className="task-welcome-name"> {prof}</p>
-              {/* <button
+      <div key={"hello"} className="dashboard-main-container">
+        <h2 className="dashboard-title">Dashboard</h2>
+        <div className="box-task-container">
+          <div className="box-task-1">
+            <p className="box-title">Welcome</p>
+            <p className="task-welcome-name"> {professor}</p>
+            {/* <button
                 className="box-button"
                 title="Display your name"
                 // onClick={fetchSingleProfessor}
               >
                 Show Name
               </button> */}
-            </div>
-            <div className="box-task-container">
-              <div className="box-task">
-                <p className="box-title">Reminders</p>
-                <div className="reminder-list-container">
-                  {/* ========== DUMMY DATA ========== */}
-                  <p className="reminder">Grade Giovani's Paper</p>
-                  <p className="reminder">Get New Books For Students</p>
-                  <p className="reminder">New Class Starting Today</p>
-                  <p className="reminder">Get More Markers</p>
-                  <p className="reminder">Talk with Giovani</p>
-                  <p className="reminder">Set Up Parents Confrence</p>
-                  <p className="reminder">Create a Website for Students</p>
-                  <p className="reminder">Create a Website for Students</p>
-                  {/* ========== [END] DUMMY DATA ========== */}
-                </div>
-              </div>
-            </div>
-            <div className="box-task-container">
-              <div className="box-task-2">
-                <p className="box-title">Dashboard Tools</p>
+          </div>
+          <div className="box-task-container">
+            <div className="box-task">
+              <p className="box-title">My Students</p>
 
-                {/* This "Add Professor" button is for testing that the data is flowing from state...
-               it will work differently once server works again.*/}
-
-                <button className="box-button">Add</button>
-                <button
-                  className="box-button"
-                  title="You must click reminder first"
-                >
-                  Edit
-                </button>
-                <button
-                  className="box-button"
-                  title="You must click reminder first"
-                >
-                  Delete
-                </button>
-                <a
-                  className="box-button-logout"
-                  title="Sign Out of Profile"
-                  onClick={handleSubmit}
-                  href="/signedout"
-                >
-                  Sign Out
-                </a>
+              <div className="reminder-list-container">
+                {props.students.map(student => (
+                  <p className="reminder">{student.firstName}</p>
+                ))}
               </div>
             </div>
           </div>
+          <div className="box-task-container">
+            <div className="box-task-2">
+              <p className="box-title">Dashboard Tools</p>
+
+              {/* This "Add Professor" button is for testing that the data is flowing from state...
+               it will work differently once server works again.*/}
+
+              <a href="/addreminders">
+                <button className="box-button">Add Students</button>
+              </a>
+              <button
+                className="box-button"
+                title="You must click reminder first"
+              >
+                Edit
+              </button>
+              <button
+                className="box-button"
+                title="You must click reminder first"
+              >
+                Delete
+              </button>
+              <a
+                className="box-button-logout"
+                title="Sign Out of Profile"
+                onClick={handleSubmit}
+                href="/signedout"
+              >
+                Sign Out
+              </a>
+            </div>
+          </div>
         </div>
-      ))}
+      </div>
     </>
   );
 };
@@ -95,7 +95,11 @@ const ProfDashboard = props => {
 //this component
 const mapStateToProps = state => ({
   professor: state.professor,
+  students: state.students,
   error: state.error
 });
 
-export default connect(mapStateToProps, { getProfessors })(ProfDashboard);
+export default connect(mapStateToProps, {
+  getProfessors,
+  getStudents
+})(ProfDashboard);

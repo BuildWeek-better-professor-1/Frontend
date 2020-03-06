@@ -13,6 +13,7 @@ import Navigation from "./components/Navigation";
 import PrivateStudentRoute from "./components/PrivateStudentRoute";
 import StudentDashBoard from "./components/StudentDashboard";
 import SignoutMessage from "./components/SignoutMessage";
+import AddRemindersForm from "./components/AddStudentsForm";
 
 const App = () => {
   return (
@@ -23,6 +24,7 @@ const App = () => {
       <Route path="/profregister" component={ProfRegisterForm} />
       <Route path="/studentregister" component={StudentRegisterForm} />
       <Route path="/studentlogin" component={StudentLoginForm} />
+      <Route path="/addreminders" component={AddRemindersForm} />
       <PrivateRoute
         exact
         path="/professordashboard"
