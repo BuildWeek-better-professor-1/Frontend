@@ -33,29 +33,26 @@ export const PROF_REMINDERS_EDIT_START = "PROF_REMINDERS_ADD_START";
 export const PROF_REMINDERS_EDIT_SUCCESS = "PROF_REMINDERS_ADD_SUCCESS";
 export const PROF_REMINDERS_EDIT_FAILURE = "PROF_REMINDERS_ADD_FAILURE";
 
-//dispatches a get request to get all data from a professor.
-//using another API because I get 404 on API from backend.
-export const getProfessors = () => dispatch => {
+//dispatches an action to get request to get data from a unique professor.
+export const getProfessors = id => dispatch => {
   dispatch({ type: PROF_FETCH_DATA_START });
   axiosWithAuth()
     // axios
-    .get("/api/users/professor", {
+    .get(`/api/users/professor/${id}`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
       }
     })
     .then(response => {
-      console.log("Name of User Using Dashboard: ", [
-        response.data.data.professors
-      ]);
+      console.log("Name of User Using Dashboard: ", response.data.data.user);
       //attempt to get token... It might work when login page works again.
 
       dispatch({
         type: PROF_FETCH_DATA_SUCCESS,
 
         //specifying the data I want.
-        payload: response.data.data.professors[0].first_name
+        payload: response.data.data.user
       });
     })
     .catch(error => {
@@ -67,7 +64,7 @@ export const getProfessors = () => dispatch => {
 export const getStudents = id => dispatch => {
   dispatch({ type: FETCH_STUDENTS_START });
   axiosWithAuth()
-    .get(`/api/users/professor/${id}/students/?r=true`, {
+    .get(`/api/users/professor/${id}/students/`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")
@@ -85,10 +82,10 @@ export const getStudents = id => dispatch => {
     });
 };
 
-export const addReminders = () => dispatch => {
+export const addReminders = id => dispatch => {
   dispatch({ type: PROF_REMINDERS_ADD_START });
   axiosWithAuth()
-    .post(`/api/projects/:id/reminder`, {
+    .post(`/api/projects/${id}/reminder`, {
       headers: {
         "Content-Type": "application/json",
         Authorization: localStorage.getItem("token")

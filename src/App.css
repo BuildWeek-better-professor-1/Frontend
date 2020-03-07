@@ -65,13 +65,20 @@ nav h1 {
   margin-left: 1rem;
 }
 
+img.logo {
+  width: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 1rem;
+}
+
 /* ============ [END] Navigation Styling =========== */
 
 /* ============ Professor Dashboard Styling ======== */
 
 .dashboard-main-container {
   background: #f5f5f5;
-  padding-bottom: 2rem;
+  padding-bottom: 48vh;
 }
 
 .dashboard-title {
@@ -81,9 +88,9 @@ nav h1 {
     url("https://images.pexels.com/photos/3184328/pexels-photo-3184328.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
   color: white;
   text-shadow: rgb(15, 15, 15);
+  background-attachment: fixed;
 }
 
 .box-task-container {
@@ -109,6 +116,7 @@ nav h1 {
   margin-top: 1rem;
   border-radius: 20px;
   border: 2px solid #eeeded;
+  cursor: no-drop;
 }
 
 .box-task-2 {
@@ -124,14 +132,25 @@ nav h1 {
   font-weight: 500;
 }
 
+.user-avatar {
+  display: flex;
+  justify-content: center;
+}
+
+.user-avatar img {
+  width: 50px;
+  align-self: baseline;
+}
+
 .task-count-circle {
   font-size: 3rem;
 }
 
 .task-welcome-name {
   position: relative;
-  bottom: 28px;
+  bottom: 58px;
   font-size: 3rem;
+  text-transform: capitalize;
 }
 
 .reminder-list-container {
@@ -161,15 +180,40 @@ nav h1 {
   border: 3px solid #37486b;
 }
 
+.box-button-link {
+  text-decoration: none;
+}
+
 .box-button-logout {
   text-decoration: none;
   color: #4f596d;
   font-size: 18px;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.modal-close {
+  position: absolute;
+  top: 2px;
+  left: 0px;
+  background: none;
+  border: none;
+  color: #5c2d40;
+}
+
+/* .popup-content {
+  height: 10rem;
+} */
+
+.add-reminder-form-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
 /* ++++++++++++++++++  SIGN OUT PAGE STYLES ++++++++++++++++++++ */
 
 .signout-image {
   margin-top: 3rem;
+  width: 500px;
 }

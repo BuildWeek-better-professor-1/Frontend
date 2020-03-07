@@ -25,16 +25,16 @@ const AddStudentsFrom = props => {
   //   };
 
   return (
-    <>
-      <p>Add New Reminder</p>
+    <div className="add-reminder-form-container">
+      <h2>Add Reminder to Student</h2>
       <form>
-        <input
+        {/* <input
           type="text"
           name="Project Name"
           placeholder="Project Name"
           value={props["Project Name"]}
           onChange={handleChange}
-        />
+        /> */}
         <input
           type="text"
           name="message"
@@ -44,7 +44,7 @@ const AddStudentsFrom = props => {
         />
         <button onClick={handleSubmit}> Add </button>
       </form>
-    </>
+    </div>
   );
 };
 

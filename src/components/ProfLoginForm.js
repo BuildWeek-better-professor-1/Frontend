@@ -19,7 +19,7 @@ const ProfLoginForm = () => {
         "https://better-professor-app-1.herokuapp.com/api/auth/login?type=p",
         { ...formState }
       );
-      console.log('lll', data)
+      console.log("lll", data);
       localStorage.setItem("token", data.data.token);
 
       history.push("/professordashboard");
@@ -46,6 +46,7 @@ const ProfLoginForm = () => {
           placeholder="username"
         />
         <input
+          type="password"
           className="prof_login-input"
           onChange={handleChange}
           name="password"
