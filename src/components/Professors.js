@@ -5,6 +5,7 @@
 import React from "react";
 import axios from "axios";
 import "./styles/Professors.css";
+import { Link } from "react-router-dom";
 
 export default class Professors extends React.Component {
     state = {
@@ -23,12 +24,18 @@ export default class Professors extends React.Component {
         return (
             <div className="professor_name-container">
                 <form className="professor-form">
-                    <h2 className="professor_name-outpu">
+                    <h2 className="professor_name-output">
                         {this.state.profs.map(professor => (
                             <li key={professor.id}>{professor.first_name} {professor.last_name} </li>
                         ))}
                     </h2>
                 </form>
+                <p>Are you a Professor?{" "}
+                    <Link className="register-form-link" to="/proflogin">
+                        <span>Login</span>
+                    </Link>
+                </p>
+
             </div>
         );
     }
