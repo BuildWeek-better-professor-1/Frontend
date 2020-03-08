@@ -23,7 +23,7 @@ export default class Professors extends React.Component {
         return (
             <div className="professor_name-container">
                 <form className="professor-form">
-                    <h2>
+                    <h2 className="professor_name-outpu">
                         {this.state.profs.map(professor => (
                             <li key={professor.id}>{professor.first_name} {professor.last_name} </li>
                         ))}

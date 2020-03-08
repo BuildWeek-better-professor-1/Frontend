@@ -11,3 +11,12 @@
     height: 100%;
     width: 100%;
 }
+
+.professor_name-output {
+    background-color: lightblue;
+    border: none;
+    height: 50px;
+    font-size: 30px;
+    margin: 20px 0;
+    border-bottom: 2px solid lightblue;
+}
