@@ -1,25 +1,35 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
-import { getProfessors, getStudents } from "../redux/actions/actions";
+import {
+  getProfessors,
+  getStudents,
+  addReminders,
+  deleteProfessor
+} from "../redux/actions/actions";
 import { decode } from "jsonwebtoken";
 import Popup from "reactjs-popup";
-import AddStudentsForm from "./AddRemindersForm";
+import AddRemindersForm from "./AddRemindersForm";
 import SignoutMessage from "./SignoutMessage";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ProfDashboard = props => {
-  //calling the action "fetchSingleProfessor" from action.js to call
-  //the API request...
-  // const fetchSingleProfessor = e => {
-  //   e.preventDefault();
-  //   props.getProfessors();
-  // };
+  console.log("props", props);
+  const [deleting, setDeleting] = useState([]);
 
-  // const [professorId, getProfessorsId] = useState();
-
-  const handleSubmit = e => {
+  const handleSubmit = () => {
     localStorage.clear();
-    console.log("GG: localStorage: ", localStorage.clear());
+    // console.log("GG: localStorage: ", localStorage.clear());
+  };
+  const handleDelete = e => {
+    e.preventDefault();
+    const { subject } = decode(localStorage.getItem("token"));
+    props.deleteProfessor(subject, deleting);
+    setDeleting(deleting.filter(deleted => deleted.subject !== subject));
+    //removes token from user that just deleted their account.
+    //this way they can't see the dashboard anymore.
+    localStorage.clear();
+    //forces reload after delete happens and sends them back to login.
+    window.location.reload(true);
   };
 
   useEffect(() => {
@@ -40,35 +50,39 @@ const ProfDashboard = props => {
               <img src="https://cdn.iconscout.com/icon/free/png-256/user-1958890-1653048.png"></img>
               <p className="task-welcome-name"> {professor.username}</p>
             </div>
+            <button onClick={handleDelete}>DELETE ACCOUNT</button>
           </div>
           <div className="box-task-container">
             <div className="box-task">
               <p className="box-title">My Students</p>
 
               <div className="reminder-list-container">
-                {props.students.map(student => (
-                  <Popup
-                    trigger={<p className="reminder">{student.firstName}</p>}
-                    modal
-                  >
-                    {close => (
-                      <>
-                        <AddStudentsForm />
-                        <button className="modal-close" onClick={close}>
-                          X
-                        </button>
-                      </>
-                    )}
-                  </Popup>
-                ))}
+                {props.students.length &&
+                  "NO" &&
+                  props.students.map(student => (
+                    <Popup
+                      trigger={<p className="reminder">{student.firstName}</p>}
+                      modal
+                    >
+                      {close => (
+                        <>
+                          <AddRemindersForm />
+                          <button className="modal-close" onClick={close}>
+                            X
+                          </button>
+                        </>
+                      )}
+                    </Popup>
+                  ))}
               </div>
             </div>
           </div>
           <div className="box-task-container">
             <div className="box-task-2">
               <p className="box-title">Dashboard Tools</p>
-
-              <button className="box-button">Add Students</button>
+              <Link to="/addstudents">
+                <button className="box-button">Add Students</button>
+              </Link>
               <button
                 className="box-button"
                 title="You must click reminder first"
@@ -115,5 +129,6 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   getProfessors,
-  getStudents
+  getStudents,
+  deleteProfessor
 })(ProfDashboard);

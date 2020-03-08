@@ -122,7 +122,7 @@ img.logo {
 .box-task-2 {
   background: #ffffff;
   width: 300px;
-  height: 355px;
+  height: 325px;
   margin-top: 1rem;
   border-radius: 20px;
   border: 2px solid #eeeded;
@@ -216,4 +216,11 @@ img.logo {
 .signout-image {
   margin-top: 3rem;
   width: 500px;
+}
+
+/* ++++++++++++++++++ ADD REMINDER FORM STYLES ++++++++++++++++++ */
+.reminder-form-message-input {
+  width: 403px;
+  border: 2px solid gainsboro;
+  padding: 1rem;
 }
