@@ -1,0 +1,13 @@
+.professor_name-container {
+    height: 330px;
+    width: 500px;
+    border-radius: 10px;
+    background: lightblue;
+    margin: 75px auto;
+    padding: 20px;
+}
+
+.professor-form {
+    height: 100%;
+    width: 100%;
+}

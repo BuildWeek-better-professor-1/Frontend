@@ -9,7 +9,7 @@ const ProfLoginForm = () => {
   const history = useHistory();
 
   const handleSubmit = async event => {
-    console.log("profLoginState", formState);
+    // console.log("profLoginState", formState);
     try {
       event.preventDefault();
 
@@ -19,7 +19,7 @@ const ProfLoginForm = () => {
         "https://better-professor-app-1.herokuapp.com/api/auth/login?type=p",
         { ...formState }
       );
-      console.log("lll", data);
+      // console.log("lll", data);
       localStorage.setItem("token", data.data.token);
 
       history.push("/professordashboard");

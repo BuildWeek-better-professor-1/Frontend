@@ -11,7 +11,13 @@ import {
   FETCH_STUDENTS_FAILURE,
   PROF_REMINDERS_ADD_START,
   PROF_REMINDERS_ADD_SUCCESS,
-  PROF_REMINDERS_ADD_FAILURE
+  PROF_REMINDERS_ADD_FAILURE,
+  CREATE_NEW_STUDENT_START,
+  CREATE_NEW_STUDENT_SUCCESS,
+  CREATE_NEW_STUDENT_FAILURE,
+  DELETE_STUDENT_START,
+  DELETE_STUDENT_SUCCESS,
+  DELETE_STUDENT_FAILURE
 } from "../actions/actions";
 
 //initial state => Before it changes when getting a promise from the API.
@@ -19,8 +25,11 @@ export const initialState = {
   //professor state
   professor: [],
 
-  //reminder state
+  //students state
   students: [],
+
+  //prof to student reminder state
+  reminder: [],
 
   //sees if data is fetch initial state: false
   isFetching: false
@@ -81,7 +90,9 @@ export const rootReducer = (state = initialState, action) => {
     case PROF_REMINDERS_ADD_START:
       return {
         //simply returns copied state
-        ...state
+        ...state,
+        error: "",
+        isFetching: true
       };
     case PROF_REMINDERS_ADD_SUCCESS:
       return {
@@ -95,7 +106,46 @@ export const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         error: "",
-        isFetching: ""
+        isFetching: false
+      };
+
+    case CREATE_NEW_STUDENT_START:
+      return {
+        ...state,
+        error: "",
+        isFetching: true
+      };
+    case CREATE_NEW_STUDENT_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: true,
+        student: action.payload
+      };
+    case CREATE_NEW_STUDENT_FAILURE:
+      return {
+        ...state,
+        error: "",
+        isFetching: false
+      };
+    case DELETE_STUDENT_START:
+      return {
+        ...state,
+        error: "",
+        isFetching: true
+      };
+    case DELETE_STUDENT_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: true,
+        professor: action.payload
+      };
+    case DELETE_STUDENT_FAILURE:
+      return {
+        ...state,
+        error: "",
+        isFetching: false
       };
     default:
       return state;

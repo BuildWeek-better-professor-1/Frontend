@@ -4,7 +4,7 @@
 
 import React from "react";
 import axios from "axios";
-
+import "./styles/Professors.css";
 
 export default class Professors extends React.Component {
     state = {
@@ -15,17 +15,21 @@ export default class Professors extends React.Component {
         axios.get(`https://better-professor-app-1.herokuapp.com/api/users/professor`)
             .then(res => {
                 console.log(res.data)
-                this.setState({ profs: res.data.dat.professors });
+                this.setState({ profs: res.data.data.professors });
             });
     }
 
     render() {
         return (
-            <ul>
-                {this.state.profs.map(professor => (
-                    <li key={professors.id}>{professors.first_name}</li>
-                ))}
-            </ul>
+            <div className="professor_name-container">
+                <form className="professor-form">
+                    <h2>
+                        {this.state.profs.map(professor => (
+                            <li key={professor.id}>{professor.first_name} {professor.last_name} </li>
+                        ))}
+                    </h2>
+                </form>
+            </div>
         );
     }
 }
