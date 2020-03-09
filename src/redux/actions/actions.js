@@ -33,6 +33,11 @@ export const DELETE_STUDENT_START = "DELETE_STUDENT_START";
 export const DELETE_STUDENT_SUCCESS = "DELETE_STUDENT_SUCCESS";
 export const DELETE_STUDENT_FAILURE = "DELETE_STUDENT_FAILURE";
 
+//reducer types edit professor account
+export const EDIT_PROFESSOR_START = "EDIT_PROFESSOR_START";
+export const EDIT_PROFESSOR_SUCCESS = "EDIT_PROFESSOR_SUCCESS";
+export const EDIT_PROFESSOR_FAILURE = "EDIT_PROFESSOR_FAILURE";
+
 //--------------------- PROFESSORS ACTIONS ONLY -------------------------//
 
 //dispatches an action to get request to get data from a unique professor.
@@ -73,6 +78,28 @@ export const addReminders = id => dispatch => {
     .catch(error => {
       console.log(error);
       dispatch({ type: PROF_REMINDERS_ADD_FAILURE, payload: error });
+    });
+};
+
+export const editProfessor = (subject, edit) => dispatch => {
+  dispatch({ type: EDIT_PROFESSOR_START });
+  axiosWithAuth()
+    // axios
+    .put(`/api/users/professor/${subject}`, edit)
+    .then(response => {
+      // console.log("Name of User Using Dashboard: ", response.data.data.user);
+      //attempt to get token... It might work when login page works again.
+
+      dispatch({
+        type: EDIT_PROFESSOR_SUCCESS,
+
+        //specifying the data I want.
+        payload: response.data.data.user
+      });
+    })
+    .catch(error => {
+      console.log(error);
+      dispatch({ type: EDIT_PROFESSOR_FAILURE, payload: error });
     });
 };
 

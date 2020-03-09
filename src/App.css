@@ -107,6 +107,7 @@ img.logo {
   margin-top: 1rem;
   border-radius: 20px;
   border: 1px solid #eeeded;
+  margin-right: 15px;
 }
 
 .box-task-1 {
@@ -117,12 +118,13 @@ img.logo {
   border-radius: 20px;
   border: 2px solid #eeeded;
   cursor: no-drop;
+  margin-right: 15px;
 }
 
 .box-task-2 {
   background: #ffffff;
   width: 300px;
-  height: 325px;
+  height: 380px;
   margin-top: 1rem;
   border-radius: 20px;
   border: 2px solid #eeeded;

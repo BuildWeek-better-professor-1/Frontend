@@ -44,74 +44,85 @@ const ProfDashboard = props => {
       <div key={"hello"} className="dashboard-main-container">
         <h2 className="dashboard-title">Dashboard</h2>
         <div className="box-task-container">
-          <div className="box-task-1">
-            <p className="box-title">Welcome</p>
-            <div className="user-avatar">
-              <img src="https://cdn.iconscout.com/icon/free/png-256/user-1958890-1653048.png"></img>
-              <p className="task-welcome-name"> {professor.username}</p>
-            </div>
-            <button onClick={handleDelete}>DELETE ACCOUNT</button>
-          </div>
-          <div className="box-task-container">
-            <div className="box-task">
-              <p className="box-title">My Students</p>
-
-              <div className="reminder-list-container">
-                {props.students.length &&
-                  "NO" &&
-                  props.students.map(student => (
-                    <Popup
-                      trigger={<p className="reminder">{student.firstName}</p>}
-                      modal
-                    >
-                      {close => (
-                        <>
-                          <AddRemindersForm />
-                          <button className="modal-close" onClick={close}>
-                            X
-                          </button>
-                        </>
-                      )}
-                    </Popup>
-                  ))}
+          <div className="professor-settings">
+            <div className="box-task-1">
+              <p className="box-title">Welcome</p>
+              <div className="user-avatar">
+                <img src="https://cdn.iconscout.com/icon/free/png-256/user-1958890-1653048.png"></img>
+                <p className="task-welcome-name"> {professor.username}</p>
               </div>
             </div>
-          </div>
-          <div className="box-task-container">
-            <div className="box-task-2">
-              <p className="box-title">Dashboard Tools</p>
-              <Link to="/addstudents">
-                <button className="box-button">Add Students</button>
+            <div className="box-task-1">
+              <p className="box-title">Settings</p>
+              <button
+                className="delete-professor-button"
+                onClick={handleDelete}
+              >
+                Delete Account
+              </button>
+              <br></br>
+              <Link to="/editprofessor">
+                <button className="delete-professor-button">
+                  Edit Account
+                </button>
               </Link>
-              <button
-                className="box-button"
-                title="You must click reminder first"
-              >
-                Edit Student
-              </button>
-              <button
-                className="box-button"
-                title="You must click reminder first"
-              >
-                Delete Student
-              </button>
-              <Popup
-                trigger={
-                  <a
-                    className="box-button-logout"
-                    title="Sign Out of Profile"
-                    onClick={handleSubmit}
-                  >
-                    Sign Out
-                  </a>
-                }
-                modal
-              >
-                <>
-                  <SignoutMessage />
-                </>
-              </Popup>
             </div>
+          </div>
+          <div className="box-task">
+            <p className="box-title">My Students</p>
+            <div className="reminder-list-container">
+              {props.students.length &&
+                "NO" &&
+                props.students.map(student => (
+                  <Popup
+                    trigger={<p className="reminder">{student.firstName}</p>}
+                    modal
+                  >
+                    {close => (
+                      <>
+                        <AddRemindersForm />
+                        <button className="modal-close" onClick={close}>
+                          X
+                        </button>
+                      </>
+                    )}
+                  </Popup>
+                ))}
+            </div>
+          </div>
+          <div className="box-task-2">
+            <p className="box-title">Dashboard Tools</p>
+            <Link to="/addstudents">
+              <button className="box-button">Add Students</button>
+            </Link>
+            <button
+              className="box-button"
+              title="You must click reminder first"
+            >
+              Edit Student
+            </button>
+            <button
+              className="box-button"
+              title="You must click reminder first"
+            >
+              Delete Student
+            </button>
+            <Popup
+              trigger={
+                <a
+                  className="box-button-logout"
+                  title="Sign Out of Profile"
+                  onClick={handleSubmit}
+                >
+                  Sign Out
+                </a>
+              }
+              modal
+            >
+              <>
+                <SignoutMessage />
+              </>
+            </Popup>
           </div>
         </div>
       </div>
