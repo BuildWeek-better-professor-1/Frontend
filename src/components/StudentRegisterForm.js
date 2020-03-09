@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './styles/StudentRegisterForm.css'
+import { useHistory} from 'react-router-dom'
 
-const StudentRegisterForm = () => {
+const StudentRegisterForm = ({getAuth, studentID }) => {
   const [user, setUser] = useState({ username: "", password: "", firstName: "", lastName: "", email: "" })
   const [error, setError] = useState("")
+
+  const history = useHistory()
 
   const handleSubmit = async (event) => {
     try {
       event.preventDefault()
-      const { data } = await axios.post("https://better-professor-app-1.herokuapp.com/api/auth/register", { ...user, type: "student" })
-      console.log(data)
+      const { data } = await axios
+        .put(`https://better-professor-app-1.herokuapp.com/api/students/${studentID}?register=true`, { ...user, registered: true })
+
+      console.log(data.data)
+      localStorage.setItem('token', data.data.token)
+
+      getAuth()
     } catch (e) {
-      console.log(e.response.data.message)
-      setError(e.response.data.message)
-      setTimeout(() => setError(""), 3500)
+      console.log(e)
+      // console.log(e.response.data.message)
+      // setError(e.response.data.message)
+      // setTimeout(() => setError(""), 3500)
     }
   }
   const handleChange = (event) => {

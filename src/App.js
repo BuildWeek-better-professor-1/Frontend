@@ -16,6 +16,7 @@ import SignoutMessage from "./components/SignoutMessage";
 import AddRemindersForm from "./components/AddRemindersForm";
 import Professors from "./components/Professors";
 import AddStudentsForm from "./components/AddStudentsForm";
+import ChooseProfessor from "./components/ChooseProfessor";
 
 const App = () => {
   return (
@@ -37,7 +38,7 @@ const App = () => {
       <PrivateStudentRoute
         exact
         path="/students"
-        OtherComponent={StudentLoginForm}
+        OtherComponent={ChooseProfessor}
         component={StudentDashBoard}
       />
 
