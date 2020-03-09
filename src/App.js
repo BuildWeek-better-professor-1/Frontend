@@ -16,6 +16,7 @@ import SignoutMessage from "./components/SignoutMessage";
 import AddRemindersForm from "./components/AddRemindersForm";
 import Professors from "./components/Professors";
 import AddStudentsForm from "./components/AddStudentsForm";
+import EditProfessorForm from "./components/EditProfessorForm";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
       <Route path="/studentlogin" component={StudentLoginForm} />
       <Route path="/addreminders" component={AddRemindersForm} />
       <Route path="/addstudents" component={AddStudentsForm} />
+      <Route path="/editprofessor" component={EditProfessorForm} />
       <PrivateRoute
         exact
         path="/professordashboard"

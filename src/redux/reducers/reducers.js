@@ -17,7 +17,10 @@ import {
   CREATE_NEW_STUDENT_FAILURE,
   DELETE_STUDENT_START,
   DELETE_STUDENT_SUCCESS,
-  DELETE_STUDENT_FAILURE
+  DELETE_STUDENT_FAILURE,
+  EDIT_PROFESSOR_START,
+  EDIT_PROFESSOR_SUCCESS,
+  EDIT_PROFESSOR_FAILURE
 } from "../actions/actions";
 
 //initial state => Before it changes when getting a promise from the API.
@@ -142,6 +145,26 @@ export const rootReducer = (state = initialState, action) => {
         professor: action.payload
       };
     case DELETE_STUDENT_FAILURE:
+      return {
+        ...state,
+        error: "",
+        isFetching: false
+      };
+
+    case EDIT_PROFESSOR_START:
+      return {
+        ...state,
+        error: "",
+        isFetching: true
+      };
+    case EDIT_PROFESSOR_SUCCESS:
+      return {
+        ...state,
+        error: "",
+        isFetching: true,
+        professor: action.payload
+      };
+    case EDIT_PROFESSOR_FAILURE:
       return {
         ...state,
         error: "",
